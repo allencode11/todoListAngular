@@ -1,1 +1,12 @@
-<p>card works!</p>
+<div id="card">
+  <div id="card-tittle">{{title}}</div>
+  <div id="card-content">
+      <div *ngFor="let el of items, let i = index">
+        <div id="item">
+          <div>{{i + 1}}</div>
+          <div>{{el.content}}</div>
+          <img src="../../assets/icons/cancel.png" (click)="removeItem(el.id)" />
+        </div>
+      </div>
+  </div>
+</div>

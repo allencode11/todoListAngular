@@ -1,6 +1,13 @@
 <div id="app">
   <app-header></app-header>
-  <app-card></app-card>
+  <div id="add-btn" (click)="addItem('done','content', true)" >
+    Add a new task
+  </div>
+  <div id="content">
+    <app-card title="To do"  (removeItemEvent) = "removeItem($event)"  [items]="filterArr(items, 'to-do')"></app-card>
+    <app-card title="In progress" (removeItemEvent) = "removeItem($event)" [items]="filterArr(items, 'in-progress')"></app-card>
+    <app-card title="Done" (removeItemEvent) = "removeItem($event)" [items]="filterArr(items, 'done')"></app-card>
+  </div>
 </div>
 
 
