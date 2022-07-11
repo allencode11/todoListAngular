@@ -26,22 +26,9 @@ rgba(0, 0, 0, 0.09) 0px -3px 5px;
     padding: 4px 10px 0px 5px;
   }
 
-  #card-tittle {
-    width: 100px;
-    margin-left: 30%;
+  .selected {
     border-bottom: 3px solid $green-primary;
-    text-align: center;
-    padding: 4px 10px 0px 5px;
   }
-
-  #card-tittle {
-    width: 100px;
-    margin-left: 30%;
-    border-bottom: 3px solid $green-primary;
-    text-align: center;
-    padding: 4px 10px 0px 5px;
-  }
-
   #card-content {
     padding: 4px 10px 0px 5px;
     color: $brown-primary;

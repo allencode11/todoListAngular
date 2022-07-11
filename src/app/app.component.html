@@ -4,10 +4,18 @@
     Add a new task
   </div>
   <div id="content">
-    <app-card title="To do"  (removeItemEvent) = "removeItem($event)"  [items]="filterArr(items, 'to-do')"></app-card>
-    <app-card title="In progress" (removeItemEvent) = "removeItem($event)" [items]="filterArr(items, 'in-progress')"></app-card>
-    <app-card title="Done" (removeItemEvent) = "removeItem($event)" [items]="filterArr(items, 'done')"></app-card>
-  </div>
+    <div class="animation-container">
+      <app-animated-sq></app-animated-sq>
+    </div>
+    <div id="card-content">
+      <app-card title="To do"  (removeItemEvent) = "removeItem($event)"  [items]="filterArr(items, 'to-do')"></app-card>
+      <app-card title="In progress" (removeItemEvent) = "removeItem($event)" [items]="filterArr(items, 'in-progress')"></app-card>
+      <app-card title="Done" (removeItemEvent) = "removeItem($event)" [items]="filterArr(items, 'done')"></app-card>
+    </div>
+    <div class="animation-container">
+      <app-animated-sq></app-animated-sq>
+    </div>  </div>
+
 </div>
 
 
