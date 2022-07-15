@@ -10,7 +10,9 @@ export class CardComponent implements OnInit, OnChanges {
 
   @Input() title: string = '';
   @Input() items: Item[] = [];
+
   @Output() removeItemEvent = new EventEmitter<string>();
+  @Output() editItemEvent = new EventEmitter<Item>();
 
   constructor() { }
 
@@ -20,7 +22,11 @@ export class CardComponent implements OnInit, OnChanges {
   ngOnChanges() {
   }
 
-  removeItemEv(id: string) {
+  editItemEv(data: Item): void {
+    this.editItemEvent.emit(data)
+  }
+
+  removeItemEv(id: string): void {
     this.removeItemEvent.emit(id)
   }
 }

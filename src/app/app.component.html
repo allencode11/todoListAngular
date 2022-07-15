@@ -9,16 +9,19 @@
     </div>
     <div id="card-content">
       <app-card title="To do"
+                (editItemEvent)="editItem($event)"
                 (removeItemEvent)="removeItem($event)"
                 [items]="filterItems('to-do')">
 
       </app-card>
       <app-card title="In progress"
+                (editItemEvent)="editItem($event)"
                 (removeItemEvent)="removeItem($event)"
                 [items]="filterItems('in-progress')">
 
       </app-card>
       <app-card title="Done"
+                (editItemEvent)="editItem($event)"
                 (removeItemEvent)="removeItem($event)"
                 [items]="filterItems('done')">
       </app-card>

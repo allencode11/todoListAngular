@@ -18,9 +18,16 @@ export class CardService {
     return this.firestore.collection('items').valueChanges() as  Observable<Item[]>;
   };
 
-  // updateItem(data: Item) {
-  //   return this.firestore.collection('items').update(data);
-  // }
+  editItem(item: Item): void {
+    const itemsRef = this.firestore.collection('items').ref;
+    const p = itemsRef.where('id', '==', item.id)
+    p.get().then((p) => {
+      const id: string = p.docs[0].id;
+      this.firestore.collection('items').doc(id).update(item).then(()=>{console.log(id, 'updated')});
+      return true;
+    })
+  };
+
 
   deleteItem(itemId: string): boolean {
     const itemsRef = this.firestore.collection('items').ref;

@@ -5,8 +5,9 @@
         <div draggable="true" id="item">
           <div>{{i + 1}}</div>
           <div>{{el.content}}</div>
+          <img src="../../assets/icons/pen.png" (click)="editItemEv({
+          id: el.id, status: 'done', content: el.content, checked: el.checked })" />
           <img src="../../assets/icons/cancel.png" (click)="removeItemEv(el.id)" />
-<!--          <img src="../../assets/icons/pen.png" (click)="editItem($event)" />-->
         </div>
       </div>
   </div>

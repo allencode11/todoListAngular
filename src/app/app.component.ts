@@ -36,6 +36,12 @@ export class AppComponent implements OnInit {
     this.cardService.createItem(data).then(() => {});
   }
 
+  editItem(data: Item) {
+    console.log(data, 'data from parent')
+
+    this.cardService.editItem(data);
+  }
+
   removeItem(id: string) {
     this.cardService.deleteItem(id)
   }
