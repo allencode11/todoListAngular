@@ -1,75 +1,42 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Item } from './types';
+import { CardService } from './services/card/card.service.service'
+// @ts-ignore
+import { v4 } from 'uuid';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+
+export class AppComponent implements OnInit {
+  items: Item[] = [];
   title: string = 'to-do-list';
-  items: Array<Item> = [
-    {
-      id: 1,
-      content: 'First item for to do card',
-      status: 'to-do',
-      checked: false
-    },
-    {
-      id: 2,
-      content: 'Second item for to do card',
-      status: 'to-do',
-      checked: false
-    },
-    {
-      id: 3,
-      content: 'One item for in progress',
-      status: 'in-progress',
-      checked: false
-    },
-    {
-      id: 4,
-      content: 'Second item for in progress',
-      status: 'in-progress',
-      checked: false
-    },
-    {
-      id: 5,
-      content: 'One item for done',
-      status: 'done',
-      checked: false
-    },
-    {
-      id: 6,
-      content: 'Second item for done',
-      status: 'done',
-      checked: false
+
+  constructor(private cardService: CardService) { }
+
+  ngOnInit() {
+    this.cardService.getItems().subscribe(data => {
+     this.items = data as Item[];
+    });
+  };
+
+  filterItems = (status: string): Item[] => {
+    return this.items.filter((el) => el.status === status)
+  };
+
+  addItem(status: string, content: string, checked: boolean) {
+    const data = {
+      status,
+      content,
+      checked,
+      id: v4(),
     }
-    ]
-
-  filterArr = (arr: Array<Item>, sel: string): Array<Item> => {
-    const arrR = arr.filter(el => el.status === sel);
-
-    return arrR;
+    this.cardService.createItem(data).then(() => {});
   }
 
-  addItem = (status: string, content: string, checked: boolean): Array<Item> => {
-    console.log("here")
-
-    const item: Item = {
-      id: this.items.length + 1,
-      content: content,
-      status: status,
-      checked: checked
-    }
-
-    this.items.push(item)
-    console.log(this.items)
-
-    return this.items
-  }
-
-  removeItem = (id: number) => {
-    this.items = this.items.filter(el => el.id !== id)
+  removeItem(id: string) {
+    this.cardService.deleteItem(id)
   }
 }

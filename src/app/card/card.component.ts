@@ -1,24 +1,26 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, OnChanges } from '@angular/core';
 import { Item } from '../types'
-import { AppComponent } from '../app.component'
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })
-export class CardComponent implements OnInit {
+export class CardComponent implements OnInit, OnChanges {
 
-  @Input() title: string = ''
-  @Input() items: Array<Item> = []
-  @Output() removeItemEvent = new EventEmitter<number>()
+  @Input() title: string = '';
+  @Input() items: Item[] = [];
+  @Output() removeItemEvent = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  removeItem = (id: number): void => {
+  ngOnChanges() {
+  }
+
+  removeItemEv(id: string) {
     this.removeItemEvent.emit(id)
   }
 }
