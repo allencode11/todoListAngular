@@ -1,27 +1,27 @@
 # ToDoList
+A simple angular app with connection to firebase, firestore without routing
+## Commands
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.5.
+> `ng serve` for a dev server (`http://localhost:4200/`)
 
-## Development server
+> `ng build` to build the project, artifacts will be stored in the `dist/` directory.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+> `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-## Code scaffolding
+## Tasks
+1. To create a functionality similar to the to-do list (Theme 1)
+2. Current to-do list displayed (Theme 1)
+3. Adding new items (Theme 1)
+4. Deleting current items (Theme 1)
+5. To add typing (interfaces) for the previous task (Theme 2)
+6. To upload the given version in github (Theme 2)
+7. Create an animation (Theme 9)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Images
+![](https://i.ibb.co/HqPJB1x/Screenshot-2022-08-03-at-16-31-51.png)
+Add new task button adds a task in to-do
+![](https://i.ibb.co/9r78Ss7/Screenshot-2022-08-03-at-16-32-17.png)
+Edit button change the status to done
+![](https://i.ibb.co/hfnyhmV/Screenshot-2022-08-03-at-16-32-46.png)
+Remove button delete tasks from cards and from database
+![](https://i.ibb.co/Rg42t3C/Screenshot-2022-08-03-at-16-52-22.png)

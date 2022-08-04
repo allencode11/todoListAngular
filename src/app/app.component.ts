@@ -3,6 +3,7 @@ import { Item } from './types';
 import { CardService } from './services/card/card.service.service'
 // @ts-ignore
 import { v4 } from 'uuid';
+import { ModalService } from './services/modal/modal.service';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,8 @@ export class AppComponent implements OnInit {
   items: Item[] = [];
   title: string = 'to-do-list';
 
-  constructor(private cardService: CardService) { }
+  constructor(private cardService: CardService,
+              private modalService: ModalService) { }
 
   ngOnInit() {
     this.cardService.getItems().subscribe(data => {
@@ -34,6 +36,10 @@ export class AppComponent implements OnInit {
       id: v4(),
     }
     this.cardService.createItem(data).then(() => {});
+  }
+
+  openModal(): void {
+    this.modalService.open();
   }
 
   editItem(data: Item) {

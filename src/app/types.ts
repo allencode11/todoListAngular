@@ -5,4 +5,7 @@ export type Item = {
   checked: boolean
 }
 
-
+export interface IModal {
+  id: string;
+  visible: boolean;
+}

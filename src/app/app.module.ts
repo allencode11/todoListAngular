@@ -11,14 +11,18 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { ModalComponent } from './shared/modal/modal.component';
+import { InputComponent } from './shared/input/input.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CardComponent,
     HeaderComponent,
-    AnimatedSqComponent
+    AnimatedSqComponent,
+    ModalComponent,
+    InputComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,8 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
     AngularFireModule.initializeApp(environment.firebase, 'to-do-list'),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    ReactiveFormsModule
 
   ],
   providers: [],
